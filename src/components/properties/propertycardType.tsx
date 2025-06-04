@@ -8,7 +8,3 @@ export type PropertyType = {
   featured?: boolean;
 };
 
-type PropertyCardProps = {
-  property: PropertyType;
-  featured?: boolean;
-};

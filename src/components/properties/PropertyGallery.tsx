@@ -1,11 +1,20 @@
-
 import { useState, useEffect } from "react";
-import { Button } from "../../components/ui/button";
-import { ChevronLeft, ChevronRight, Image } from "lucide-react";
+import { Button } from "../ui/button";
+import { ChevronLeft, ChevronRight, Image as ImageIcon } from "lucide-react";
 
-const PropertyGallery = ({ items }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
+type GalleryItem = {
+  id: string;
+  type: "image";
+  url: string;
+};
+
+type PropertyGalleryProps = {
+  items: GalleryItem[];
+};
+
+const PropertyGallery: React.FC<PropertyGalleryProps> = ({ items }) => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     setLoading(true);
@@ -22,7 +31,7 @@ const PropertyGallery = ({ items }) => {
     return (
       <div className="bg-gray-100 rounded-lg flex items-center justify-center p-10">
         <p className="text-gray-500 flex items-center">
-          <Image className="w-5 h-5 mr-2" />
+          <ImageIcon className="w-5 h-5 mr-2" />
           No images available
         </p>
       </div>
@@ -37,7 +46,7 @@ const PropertyGallery = ({ items }) => {
     setCurrentIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
   };
 
-  const goToSlide = (index) => {
+  const goToSlide = (index: number) => {
     setCurrentIndex(index);
   };
 
@@ -48,7 +57,7 @@ const PropertyGallery = ({ items }) => {
       <div className="relative overflow-hidden rounded-lg aspect-video bg-gray-100">
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-estate-primary"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-estate-primary border-4 border-t-transparent"></div>
           </div>
         )}
 
@@ -61,7 +70,8 @@ const PropertyGallery = ({ items }) => {
         />
 
         <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full flex items-center text-sm">
-          <Image className="w-4 h-4 mr-1" /> Image {currentIndex + 1} of {items.length}
+          <ImageIcon className="w-4 h-4 mr-1" />
+          Image {currentIndex + 1} of {items.length}
         </div>
 
         <Button
@@ -72,6 +82,7 @@ const PropertyGallery = ({ items }) => {
         >
           <ChevronLeft className="h-5 w-5" />
         </Button>
+
         <Button
           variant="outline"
           size="icon"

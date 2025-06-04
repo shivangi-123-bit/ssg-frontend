@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { mockProperties } from "../data/mockData";
-import { PropertyType } from "../components/properties/PropertyCard";
+import { PropertyType } from "../components/properties/propertycardType";
 import PropertyCard from "../components/properties/PropertyCard";
 
 const Properties = () => {

@@ -1,4 +1,20 @@
-export const mockProperties = [
+// mockData.ts
+
+export type Property = {
+  id: string;
+  title: string;
+  location: string;
+  price: number;
+  priceUnit: string;
+  size: string;
+  description: string;
+  imageUrl: string;
+  gallery: string[];
+  videoId: string;
+  featured: boolean;
+};
+
+export const mockProperties: Property[] = [
   {
     id: "prop1",
     title: "Lucknow Kursi Road Plot",
@@ -8,7 +24,7 @@ export const mockProperties = [
     priceUnit: "sq. ft.",
     size: "--",
     description:
-      "30 ft wide main road, with 24 ft & 22 ft branch roads,Electricity & street lights, Green area & gated society, Proper drainage & shaded trees, Close to Night Safari & Zoo, Connected to the main Scorpio Club road",
+      "30 ft wide main road, with 24 ft & 22 ft branch roads, Electricity & street lights, Green area & gated society, Proper drainage & shaded trees, Close to Night Safari & Zoo, Connected to the main Scorpio Club road",
     imageUrl: "/assets/ScorpioClub1.jpg",
     gallery: [
       "../../assets/ScorpioClub1.jpg",
@@ -27,7 +43,7 @@ export const mockProperties = [
     priceUnit: "sq ft",
     size: "--",
     description:
-      "30-feet wide main road, with 24 and 22-feet wide branch roads,Electricity and street lights,Green area, gated society, proper drainage system, and shady trees, Only 500 meters from Ram Sagar Mishra Government Hospital, Just 600 meters from RR College",
+      "30-feet wide main road, with 24 and 22-feet wide branch roads, Electricity and street lights, Green area, gated society, proper drainage system, and shady trees, Only 500 meters from Ram Sagar Mishra Government Hospital, Just 600 meters from RR College",
     imageUrl: "/assets/Sitapur1.jpg",
     gallery: [
       "../../assets/Sitapur1.jpg",
@@ -63,7 +79,7 @@ export const mockProperties = [
     priceUnit: "sq ft",
     size: "--",
     description:
-      "Prime Location : Situated just 300 meters from Shukla Chauraha in Jankipuram Extension, Secured and well-managed residential environment, Good Connectivity",
+      "Prime Location: Situated just 300 meters from Shukla Chauraha in Jankipuram Extension, Secured and well-managed residential environment, Good Connectivity",
     imageUrl: "/assets/Jankipuram1.png",
     gallery: [
       "../../assets/Jankipuram1.png",
@@ -75,7 +91,14 @@ export const mockProperties = [
   },
 ];
 
-export const propertyLocations = {
+export type Location = {
+  title: string;
+  latitude: number;
+  longitude: number;
+  address: string;
+};
+
+export const propertyLocations: { office: Location } = {
   office: {
     title: "Shree Shyam Group Office",
     latitude: 26.8467,

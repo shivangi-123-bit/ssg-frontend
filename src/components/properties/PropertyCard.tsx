@@ -1,8 +1,23 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "../ui/card";
 import { Badge } from "../ui/badge";
-import { MapPin } from "lucide-react";
-const PropertyCard = ({ property, featured = false }) => {
+// import { MapPin } from "lucide-react";
+
+type Property = {
+  id: string | number;
+  title: string;
+  imageUrl: string;
+  price: number;
+  priceUnit: string;
+  size: string;
+};
+
+type PropertyCardProps = {
+  property: Property;
+  featured?: boolean;
+};
+
+const PropertyCard: React.FC<PropertyCardProps> = ({ property, featured = false }) => {
   return (
     <Card
       className={`overflow-hidden group transition-all duration-300 hover:shadow-lg ${
