@@ -33,8 +33,8 @@ const PropertyDetails = () => {
 
   return (
     <div className="min-h-screen pt-24 pb-16">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-3 gap-8">
+      <div className="container mx-auto px-4 lg:flex ">
+        <div className=" min-w-[65%] ">
           <div className="lg:col-span-2">
             <PropertyGallery items={galleryItems} />
 
@@ -95,7 +95,7 @@ const PropertyDetails = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-1">
+        <div className="min-w-[35%]">
           <div className="sticky top-24">
             <div className="bg-white rounded-lg shadow-md p-6 mb-6">
               <h2 className="text-xl font-semibold mb-4">
