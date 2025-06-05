@@ -65,7 +65,7 @@ const HomePage = () => {
           
           <div className="text-center mt-10">
             <Link to="/properties">
-              <Button variant="outline" className="border-estate-primary text-estate-primary hover:bg-[#9F0712] hover:text-white transition-colors px-8 py-4">
+              <Button variant="outline" className="border-estate-primary text-estate-primary hover:bg-[#9F0712] cursor-pointer hover:text-white transition-colors px-8 py-4">
                 View All Properties
               </Button>
             </Link> 
