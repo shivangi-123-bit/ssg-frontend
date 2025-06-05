@@ -33,6 +33,18 @@ const ContactForm = ({ propertyId, propertyTitle }: ContactFormProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const phonePattern = /^[6-9]\d{9}$/;
+    if (!phonePattern.test(formData.phone)) {
+      toast({
+        title: "Invalid phone number",
+        description: "Please enter a valid 10-digit Indian phone number.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
     try {
       const response = await fetch(
         "https://ssg-backend-3ac1.onrender.com/api/contact",
