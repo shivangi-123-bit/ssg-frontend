@@ -16,8 +16,8 @@ const ContactForm = ({ propertyId, propertyTitle }: ContactFormProps) => {
     name: "",
     email: "",
     phone: "",
-    message: propertyTitle 
-      ? `I'm interested in this property: ${propertyTitle}` 
+    message: propertyTitle
+      ? `I'm interested in this property: ${propertyTitle}`
       : "",
     propertyId: propertyId || "",
   });
@@ -28,20 +28,23 @@ const ContactForm = ({ propertyId, propertyTitle }: ContactFormProps) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-// ----------------------------------------------------handle submit--------------------------------------------------
+  // ----------------------------------------------------handle submit--------------------------------------------------
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-  
+
     try {
-      const response = await fetch('https://ssg-backend-3ac1.onrender.com/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-  
+      const response = await fetch(
+        "https://ssg-backend-3ac1.onrender.com/api/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
       if (response.ok) {
         toast({
           title: "Inquiry Submitted",
@@ -107,6 +110,8 @@ const ContactForm = ({ propertyId, propertyTitle }: ContactFormProps) => {
           value={formData.phone}
           onChange={handleChange}
           required
+          pattern="[6-9]{1}[0-9]{9}"
+          title="Please enter a valid 10-digit phone number"
           className="border-gray-300 focus:border-estate-primary"
         />
       </div>
@@ -120,8 +125,8 @@ const ContactForm = ({ propertyId, propertyTitle }: ContactFormProps) => {
           className="border-gray-300 focus:border-estate-primary resize-none h-32"
         />
       </div>
-      <Button 
-        type="submit" 
+      <Button
+        type="submit"
         disabled={isSubmitting}
         className="w-full bg-red-800 text-white hover:bg-white hover:border-1 hover:text-black transition-colors duration-300"
       >
